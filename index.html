@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caixa Preta da OAB · Master5 OAB</title>
+<meta name="description" content="Os temas e artigos mais cobrados pela FGV na 1ª fase da OAB, com checklist de estudo e revisão. Por Sa Arantes, Master5 OAB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#15172B; --navy-2:#1D2038; --navy-3:#2E3254;
+  --orange:#D7683D; --orange-ink:#B5552E;
+  --blue:#8896BE; --sand:#E8A062;
+  --paper:#F3F1EF; --card:#FBFAF8; --line:#E2DDD6;
+  --ink:#15172B; --ink-2:#4A4C5E; --ink-3:#6B6E82;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Poppins,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font-family:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* Topo */
+.hero{background:var(--navy);color:var(--paper);padding:28px 0 56px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:44px;height:44px;flex:none}
+.brand b{display:block;font-weight:600;font-size:16px;line-height:1.2}
+.brand span{font-size:13px;color:var(--blue)}
+.tag{display:inline-block;margin-top:44px;padding:6px 16px;border:1.5px solid var(--orange);border-radius:999px;color:var(--sand);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,8vw,84px);line-height:1.02;margin:18px 0 18px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p.lead{max-width:640px;margin:0;color:#C9CDE0;font-size:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.step{border-top:1.5px solid var(--navy-3);padding-top:14px}
+.step i{font-style:normal;font-family:var(--serif);color:var(--orange);font-size:28px;line-height:1}
+.step h3{margin:6px 0 4px;font-size:16px;font-weight:600}
+.step p{margin:0;color:#C9CDE0;font-size:14px}
+
+/* Painel de progresso */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin-top:-32px;position:relative;display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:center}
+.panel h2{margin:0;font-size:15px;font-weight:600}
+.panel small{color:var(--ink-3);font-size:13px}
+.meter{grid-column:1/-1;display:flex;flex-direction:column;gap:8px}
+.bar{height:10px;border-radius:99px;background:#EAE5DE;overflow:hidden;display:flex}
+.bar .s{background:var(--blue)} .bar .r{background:var(--orange)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.big{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink)}
+.big small{font-family:var(--sans);font-size:14px;color:var(--ink-3)}
+
+/* Ferramentas */
+.tools{position:sticky;top:0;z-index:5;background:rgba(243,241,239,.96);backdrop-filter:blur(6px);padding:16px 0 12px;margin-top:28px;border-bottom:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px}
+.search input{border:0;background:transparent;outline:0;width:100%;padding:12px 0;font-size:15px;color:var(--ink)}
+.search:focus-within{border-color:var(--navy)}
+.toggle{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:14px;cursor:pointer;user-select:none}
+.toggle input{accent-color:var(--orange);width:16px;height:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+
+/* Disciplinas */
+main{padding:28px 0 40px}
+.disc{background:var(--card);border:1px solid var(--line);border-radius:20px;margin-bottom:20px;overflow:hidden}
+.disc-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:22px 24px 18px;border-bottom:1px solid var(--line)}
+.disc-h h2{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15;margin:0}
+.disc-h .meta{font-size:13px;color:var(--ink-3);margin-top:4px}
+.qbox{flex:none;text-align:right}
+.qbox b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;color:var(--orange-ink)}
+.qbox span{display:block;font-size:12px;color:var(--ink-3)}
+.dica{margin:0;padding:12px 24px;font-size:13.5px;color:var(--ink-2);background:#F7F4EF;border-bottom:1px solid var(--line)}
+.dprog{height:4px;background:#EAE5DE}
+.dprog div{height:100%;background:var(--orange);width:0;transition:width .3s}
+
+.topic{display:grid;grid-template-columns:1fr auto;gap:10px 20px;padding:18px 24px;border-bottom:1px solid var(--line)}
+.topic:last-child{border-bottom:0}
+.topic.done{background:#F7F4EF}
+.t-title{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.t-title h3{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+.must{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);background:var(--navy);padding:3px 10px;border-radius:999px}
+.freq{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:13px;color:var(--ink-2)}
+.freq{flex-wrap:wrap}
+.exs{display:flex;gap:4px}
+.exs span{font-size:11px;font-weight:600;line-height:1;padding:5px 6px;border-radius:6px;border:1px dashed #D5CFC6;color:#A7A2B3}
+.exs span.on{background:var(--navy);border:1px solid var(--navy);color:var(--paper)}
+.freq b{font-weight:600;color:var(--ink)}
+.qs{margin:6px 0 0;font-size:12px;color:var(--ink-3)}
+.arts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.art{font-size:12.5px;line-height:1.35;background:#EFEBE5;color:var(--ink);border-radius:8px;padding:5px 10px}
+.tip{margin:10px 0 0;font-size:13.5px;color:var(--ink-2);border-left:3px solid var(--orange);padding-left:10px}
+.checks{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.ck{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer;background:#fff;white-space:nowrap}
+.ck input{accent-color:var(--orange);width:16px;height:16px;margin:0}
+.ck:has(input:checked){border-color:var(--orange);color:var(--ink)}
+.empty{display:none;text-align:center;color:var(--ink-3);padding:48px 0}
+
+/* Rodapé */
+.method{background:var(--navy);color:#C9CDE0;padding:48px 0;font-size:14px}
+.method h2{font-family:var(--serif);font-weight:400;color:var(--paper);font-size:28px;margin:0 0 14px}
+.method .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+.method h3{color:var(--sand);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px}
+.method ul{margin:0;padding-left:18px}
+.method li{margin-bottom:6px}
+.method a{color:var(--paper)}
+.cafe{display:grid;gap:12px}
+.cafe div{border-top:1px solid var(--navy-3);padding-top:10px}
+.cafe b{font-family:var(--serif);font-weight:400;color:var(--orange);font-size:22px;margin-right:8px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--navy-3);margin-top:36px;padding-top:20px}
+.reset{background:transparent;border:1px solid var(--navy-3);color:#C9CDE0;border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer}
+.reset:hover{border-color:var(--blue)}
+
+@media (max-width:720px){
+  .steps{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr}
+  .topic{grid-template-columns:1fr}
+  .checks{flex-direction:row}
+  .ck{flex:1;justify-content:center}
+  .disc-h{padding:18px}
+  .topic{padding:16px 18px}
+  .method .cols{grid-template-columns:1fr}
+  .exs span{padding:5px 5px}
+  .toggle{flex:1;justify-content:center;font-size:13px;padding:10px}
+  .dica{padding:12px 18px}
+}
+@media print{
+  .tools,.reset,.panel{display:none}
+  .disc{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 200 200" aria-label="Logo Master5 OAB" role="img"><path d="M67 39 A78 78 0 1 0 133 39" fill="none" stroke="#D7683D" stroke-width="8" stroke-linecap="round"/><path d="M100 50 C90 32 72 26 62 30 C70 45 86 52 100 50 Z" fill="#D7683D"/><path d="M100 50 C110 32 128 26 138 30 C130 45 114 52 100 50 Z" fill="#D7683D"/><circle cx="100" cy="110" r="60" fill="#D7683D"/><line x1="74" y1="84" x2="126" y2="136" stroke="#15172B" stroke-width="16" stroke-linecap="round"/><line x1="126" y1="84" x2="74" y2="136" stroke="#15172B" stroke-width="16" stroke-linecap="round"/><circle cx="100" cy="110" r="8" fill="#D7683D"/><line x1="100" y1="76" x2="100" y2="88" stroke="#F3F1EF" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="132" x2="100" y2="144" stroke="#F3F1EF" stroke-width="5" stroke-linecap="round"/><line x1="66" y1="110" x2="78" y2="110" stroke="#F3F1EF" stroke-width="5" stroke-linecap="round"/><line x1="122" y1="110" x2="134" y2="110" stroke="#F3F1EF" stroke-width="5" stroke-linecap="round"/></svg>
+      <div><b>Master5 OAB</b><span>por Sa Arantes · @sabrinedireito</span></div>
+    </div>
+    <span class="tag">Bônus · Desafio 60 Dias</span>
+    <h1>Caixa Preta<br><em>da OAB</em></h1>
+    <p class="lead">As 480 questões das 6 últimas provas da 1ª fase (42º ao 47º Exame), organizadas por tema: você vê em quais provas cada assunto caiu, os artigos para ler e marca o que já estudou e revisou.</p>
+    <div class="steps">
+      <div class="step"><i>1</i><h3>Veja o peso</h3><p>Cada disciplina mostra quantas questões costuma ter e quais temas mais caem.</p></div>
+      <div class="step"><i>2</i><h3>Vá aos artigos</h3><p>Leia na lei seca os dispositivos indicados em cada tema.</p></div>
+      <div class="step"><i>3</i><h3>Marque o progresso</h3><p>“Estudei” depois da teoria e questões. “Revisei” depois da revisão ativa.</p></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="panel" aria-label="Seu progresso">
+    <div>
+      <h2>Seu progresso</h2>
+      <small>Fica salvo neste navegador. Use sempre o mesmo aparelho.</small>
+    </div>
+    <div class="big" id="pct">0%<small> revisado</small></div>
+    <div class="meter">
+      <div class="bar" aria-hidden="true"><div class="r" id="barR"></div><div class="s" id="barS"></div></div>
+      <div class="legend"><span style="--c:var(--orange)" id="lgR">0 revisados</span><span style="--c:var(--blue)" id="lgS">0 só estudados</span><span style="--c:#EAE5DE" id="lgT">0 temas no total</span></div>
+    </div>
+  </section>
+
+  <div class="tools">
+    <div class="row">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6E82" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar tema, lei ou artigo (ex.: 7º, adoção, LINDB)" aria-label="Buscar"></label>
+      <label class="toggle"><input type="checkbox" id="onlyMust"> Só “não vá sem”</label>
+      <label class="toggle"><input type="checkbox" id="hideDone"> Esconder revisados</label>
+    </div>
+    <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por disciplina"></div>
+  </div>
+
+  <main id="list"></main>
+  <p class="empty" id="empty">Nenhum tema encontrado com esse filtro.</p>
+</div>
+
+<footer class="method">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>Como esta caixa foi montada</h2>
+        <ul>
+          <li><b>Base:</b> as 80 questões de cada prova do 42º ao 47º Exame (480 no total), lidas uma a uma e classificadas pelo tema principal cobrado. Cada tema mostra em quais provas caiu e o número das questões, para você ir direto a elas.</li>
+          <li><b>Questões por disciplina:</b> a quantidade foi a mesma nas 6 provas. O edital do 48º Exame fixa 80 questões e exige que pelo menos 15% tratem de Estatuto e Código de Ética, Direitos Humanos e Filosofia.</li>
+          <li><b>Artigos:</b> os dispositivos centrais de cada tema, pela lei vigente.</li>
+          <li><b>“Não vá sem”:</b> temas que caíram em pelo menos 5 das 6 provas. Nas disciplinas de 2 questões, o tema que mais apareceu.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Como fixar: técnica CAFÉ</h3>
+        <div class="cafe">
+          <div><b>CA</b>Correção Aprofundada dos erros: conteúdo, interpretação ou pressa?</div>
+          <div><b>F</b>Flashcards dos artigos que estão nesta caixa.</div>
+          <div><b>É</b>Evocar: feche o material e puxe da memória.</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <span>© Master5 OAB · Sa Arantes · Dúvidas: sabrinedireito@gmail.com</span>
+      <button class="reset" id="reset" type="button">Zerar meu progresso</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+const EXAMES=[42,43,44,45,46,47];
+const DATA = [{"id": "etica", "nome": "Ética Profissional", "dica": "A disciplina que mais pesa. Lei seca do Estatuto e do Código de Ética resolve a maioria das questões.", "q": 8, "temas": [{"t": "Inscrição, estágio e atividade de advocacia", "a": ["EAOAB arts. 1º a 5º", "EAOAB arts. 8º a 14"], "n": 10, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q8", "43º Q3", "43º Q6", "44º Q6", "45º Q2", "45º Q5", "46º Q3", "47º Q2", "47º Q3", "47º Q8"]}, {"t": "Incompatibilidades e impedimentos", "a": ["EAOAB arts. 27 a 30"], "n": 7, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q3", "42º Q5", "43º Q5", "44º Q2", "45º Q3", "46º Q2", "47º Q5"]}, {"t": "Sigilo, deveres e relação com o cliente", "a": ["CED arts. 9º a 26", "CED arts. 35 a 38", "EAOAB arts. 31 a 33"], "n": 7, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q2", "42º Q4", "43º Q8", "44º Q1", "45º Q6", "46º Q8", "47º Q4"]}, {"t": "Direitos e prerrogativas do advogado", "a": ["EAOAB arts. 6º e 7º", "EAOAB arts. 7º-A e 7º-B"], "n": 5, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q1", "43º Q7", "44º Q7", "45º Q7", "46º Q1"]}, {"t": "Infrações, sanções e processo disciplinar", "a": ["EAOAB arts. 34 a 43", "EAOAB arts. 68 a 77"], "n": 6, "ex": [43, 44, 46, 47], "qs": ["43º Q2", "44º Q4", "44º Q8", "46º Q5", "47º Q6", "47º Q7"]}, {"t": "Honorários advocatícios", "a": ["EAOAB arts. 22 a 26", "CED arts. 48 a 54"], "n": 4, "ex": [42, 43, 44, 46], "qs": ["42º Q7", "43º Q4", "44º Q5", "46º Q6"]}, {"t": "Sociedade de advogados", "a": ["EAOAB arts. 15 a 17", "RGOAB arts. 37 a 43"], "n": 4, "ex": [45, 46, 47], "qs": ["45º Q1", "45º Q8", "46º Q4", "47º Q1"]}, {"t": "Publicidade profissional", "a": ["CED arts. 39 a 47", "Provimento 205/2021"], "n": 3, "ex": [43, 44, 46], "qs": ["43º Q1", "44º Q3", "46º Q7"]}, {"t": "Advogado empregado", "a": ["EAOAB arts. 18 a 21"], "n": 1, "ex": [45], "qs": ["45º Q4"]}, {"t": "Órgãos e eleições da OAB", "a": ["EAOAB arts. 44 a 67"], "n": 1, "ex": [42], "qs": ["42º Q6"]}]}, {"id": "filo", "nome": "Filosofia do Direito", "dica": "Não tem lei: aqui se estuda o autor e a ideia central de cada um.", "q": 2, "temas": [{"t": "Hermenêutica, interpretação e integração", "a": ["Analogia e interpretação extensiva/restritiva", "Zetética × dogmática (Tercio Sampaio)"], "n": 4, "ex": [44, 45, 46], "qs": ["44º Q10", "45º Q10", "46º Q9", "46º Q10"]}, {"t": "Contratualismo", "a": ["Hobbes, Locke e Rousseau (vontade geral)"], "n": 3, "ex": [44, 45, 47], "qs": ["44º Q9", "45º Q9", "47º Q10"]}, {"t": "Filosofia clássica", "a": ["Platão (Alegoria da Caverna)", "Aristóteles (formas de governo)"], "n": 2, "ex": [42], "qs": ["42º Q9", "42º Q10"]}, {"t": "Positivismo jurídico", "a": ["Escola da Exegese", "Kelsen e Hart"], "n": 1, "ex": [43], "qs": ["43º Q9"]}, {"t": "Immanuel Kant", "a": ["Dignidade e imperativo categórico"], "n": 1, "ex": [43], "qs": ["43º Q10"]}, {"t": "Jusnaturalismo, direito e justiça", "a": ["Direitos anteriores ao Estado", "Dworkin e Antígona"], "n": 1, "ex": [47], "qs": ["47º Q9"]}]}, {"id": "const", "nome": "Direito Constitucional", "dica": null, "q": 6, "temas": [{"t": "Organização do Estado, competências e intervenção", "a": ["CF arts. 18 a 33", "CF arts. 34 a 36 (intervenção)"], "n": 8, "ex": [42, 43, 45, 46, 47], "qs": ["42º Q13", "42º Q14", "43º Q13", "45º Q14", "46º Q12", "46º Q14", "47º Q12", "47º Q15"]}, {"t": "Organização dos Poderes e fiscalização", "a": ["CF arts. 44 a 75 (Legislativo e Tribunais de Contas)", "CF arts. 76 a 91 (Executivo)", "CF arts. 92 a 126 (Judiciário)"], "n": 7, "ex": [42, 43, 44, 46, 47], "qs": ["42º Q12", "42º Q15", "43º Q11", "43º Q14", "44º Q12", "46º Q15", "47º Q11"]}, {"t": "Direitos e garantias fundamentais e remédios", "a": ["CF art. 5º", "CF arts. 6º a 11"], "n": 5, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q16", "43º Q15", "44º Q16", "45º Q11", "46º Q11"]}, {"t": "Controle de constitucionalidade", "a": ["CF arts. 97, 102 e 103", "Lei 9.868/99", "Lei 9.882/99"], "n": 5, "ex": [43, 44, 45, 46], "qs": ["43º Q16", "44º Q13", "45º Q15", "46º Q13", "46º Q16"]}, {"t": "Processo legislativo", "a": ["CF arts. 59 a 69"], "n": 3, "ex": [42, 44, 47], "qs": ["42º Q11", "44º Q14", "47º Q14"]}, {"t": "Nacionalidade e direitos políticos", "a": ["CF art. 12", "CF arts. 14 a 16"], "n": 2, "ex": [45, 47], "qs": ["45º Q16", "47º Q16"]}, {"t": "Administração pública e precatórios", "a": ["CF arts. 37 a 41", "CF art. 100"], "n": 2, "ex": [43, 45], "qs": ["43º Q12", "45º Q13"]}, {"t": "Ordem econômica e social", "a": ["CF arts. 170 a 181", "CF arts. 193 a 232"], "n": 2, "ex": [44, 45], "qs": ["44º Q11", "45º Q12"]}, {"t": "Teoria da Constituição", "a": ["Poder constituinte, recepção e hierarquia das normas"], "n": 2, "ex": [44, 47], "qs": ["44º Q15", "47º Q13"]}]}, {"id": "dh", "nome": "Direitos Humanos", "dica": null, "q": 2, "temas": [{"t": "Sistema global (ONU) e Tribunal Penal Internacional", "a": ["DUDH e Pactos de 1966", "Estatuto de Roma", "Regras de Mandela (pessoas presas)"], "n": 4, "ex": [43, 44, 47], "qs": ["43º Q17", "44º Q17", "44º Q18", "47º Q18"]}, {"t": "Povos indígenas, quilombolas e comunidades tradicionais", "a": ["CF arts. 231 e 232", "ADCT art. 68", "Convenção 169 da OIT"], "n": 3, "ex": [42, 45, 46], "qs": ["42º Q17", "45º Q17", "46º Q17"]}, {"t": "Incorporação dos tratados de direitos humanos", "a": ["CF art. 5º, §§ 2º e 3º", "Supralegalidade (STF)"], "n": 2, "ex": [46, 47], "qs": ["46º Q18", "47º Q17"]}, {"t": "Sistema Interamericano", "a": ["Pacto de São José arts. 25, 44 a 51 e 61 a 63"], "n": 1, "ex": [45], "qs": ["45º Q18"]}, {"t": "Refugiados e migrantes", "a": ["Lei 9.474/97", "Lei 13.445/17"], "n": 1, "ex": [42], "qs": ["42º Q18"]}, {"t": "Grupos vulneráveis e direitos sociais", "a": ["CF arts. 6º e 205 a 208", "CF art. 227"], "n": 1, "ex": [43], "qs": ["43º Q18"]}]}, {"id": "eleit", "nome": "Direito Eleitoral", "dica": null, "q": 2, "temas": [{"t": "Ilícitos e ações eleitorais (AIJE, AIME, captação de sufrágio, condutas vedadas)", "a": ["LC 64/90 art. 22", "Lei 9.504/97 arts. 41-A e 73", "CF art. 14, §§ 10 e 11"], "n": 5, "ex": [43, 44, 45, 47], "qs": ["43º Q19", "43º Q20", "44º Q19", "45º Q19", "47º Q20"]}, {"t": "Alistamento, elegibilidade e registro de candidatura", "a": ["CF art. 14", "LC 64/90 art. 1º", "Lei 9.504/97 art. 11"], "n": 3, "ex": [42, 46, 47], "qs": ["42º Q20", "46º Q19", "47º Q19"]}, {"t": "Propaganda eleitoral e direito de resposta", "a": ["Lei 9.504/97 arts. 36 a 58"], "n": 2, "ex": [42, 44], "qs": ["42º Q19", "44º Q20"]}, {"t": "Financiamento de campanhas e partidos", "a": ["Lei 9.504/97 arts. 17 a 32", "Lei 9.096/95 (Fundo Partidário)"], "n": 2, "ex": [45, 46], "qs": ["45º Q20", "46º Q20"]}]}, {"id": "inter", "nome": "Direito Internacional", "dica": null, "q": 2, "temas": [{"t": "LINDB", "a": ["LINDB arts. 7º a 17"], "n": 3, "ex": [44, 46, 47], "qs": ["44º Q21", "46º Q22", "47º Q22"]}, {"t": "Lei de Migração", "a": ["Lei 13.445/17 (vistos, expulsão, deportação e extradição)"], "n": 4, "ex": [42, 45], "qs": ["42º Q21", "42º Q22", "45º Q21", "45º Q22"]}, {"t": "Competência internacional e cooperação", "a": ["CPC arts. 21 a 41", "CPC arts. 960 a 965 (homologação)"], "n": 3, "ex": [43, 46], "qs": ["43º Q21", "43º Q22", "46º Q21"]}, {"t": "Tratados internacionais", "a": ["Convenção de Viena de 1969", "CF arts. 49, I, e 84, VIII"], "n": 2, "ex": [44, 47], "qs": ["44º Q22", "47º Q21"]}]}, {"id": "fin", "nome": "Direito Financeiro", "dica": null, "q": 2, "temas": [{"t": "Lei de Responsabilidade Fiscal", "a": ["LC 101/00 (pessoal, transparência, limitação de empenho, renúncia)"], "n": 7, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q23", "42º Q24", "43º Q23", "44º Q24", "45º Q24", "46º Q23", "47º Q23"]}, {"t": "Leis orçamentárias (PPA, LDO e LOA)", "a": ["CF arts. 165 a 169", "Lei 4.320/64"], "n": 3, "ex": [43, 44, 46], "qs": ["43º Q24", "44º Q23", "46º Q24"]}, {"t": "Execução orçamentária e da despesa", "a": ["Lei 4.320/64 arts. 58 a 70", "CF art. 168"], "n": 2, "ex": [45, 47], "qs": ["45º Q23", "47º Q24"]}]}, {"id": "trib", "nome": "Direito Tributário", "dica": null, "q": 5, "temas": [{"t": "Crédito tributário, prescrição e decadência", "a": ["CTN arts. 142 a 174", "CTN arts. 151, 156 e 175", "CTN arts. 205 e 206 (certidões)"], "n": 8, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q25", "42º Q27", "43º Q25", "43º Q28", "44º Q28", "45º Q27", "46º Q26", "47º Q29"]}, {"t": "Limitações ao poder de tributar e imunidades", "a": ["CF arts. 150 a 152"], "n": 8, "ex": [42, 44, 45, 46, 47], "qs": ["42º Q29", "44º Q26", "44º Q29", "45º Q28", "46º Q25", "46º Q28", "46º Q29", "47º Q27"]}, {"t": "Impostos em espécie", "a": ["CF art. 153 (União)", "CF art. 155 (Estados)", "CF art. 156 (Municípios)"], "n": 6, "ex": [44, 45, 46, 47], "qs": ["44º Q25", "44º Q27", "45º Q26", "46º Q27", "47º Q25", "47º Q26"]}, {"t": "Competência e espécies tributárias", "a": ["CF arts. 145 a 149-A", "CTN art. 7º (delegação)"], "n": 3, "ex": [43, 45, 47], "qs": ["43º Q27", "45º Q29", "47º Q28"]}, {"t": "Obrigação e responsabilidade tributária", "a": ["CTN arts. 113 a 138"], "n": 3, "ex": [42, 43], "qs": ["42º Q28", "43º Q26", "43º Q29"]}, {"t": "Vigência e interpretação da legislação tributária", "a": ["CTN arts. 96 a 112"], "n": 2, "ex": [42, 45], "qs": ["42º Q26", "45º Q25"]}]}, {"id": "adm", "nome": "Direito Administrativo", "dica": null, "q": 5, "temas": [{"t": "Licitações e contratos administrativos", "a": ["Lei 14.133/21 arts. 28, 74 e 75", "Lei 14.133/21 arts. 104 a 139 (contratos)"], "n": 6, "ex": [42, 44, 45, 46, 47], "qs": ["42º Q34", "44º Q32", "45º Q31", "45º Q34", "46º Q30", "47º Q33"]}, {"t": "Intervenção do Estado na propriedade", "a": ["CF art. 5º, XXIV, e arts. 182 a 184", "DL 3.365/41", "DL 25/37 (tombamento)"], "n": 5, "ex": [42, 43, 44, 46, 47], "qs": ["42º Q30", "43º Q32", "44º Q31", "46º Q31", "47º Q32"]}, {"t": "Improbidade administrativa", "a": ["Lei 8.429/92 (com a Lei 14.230/21)"], "n": 4, "ex": [43, 44, 45, 46], "qs": ["43º Q33", "44º Q34", "45º Q32", "46º Q33"]}, {"t": "Atos administrativos e autotutela", "a": ["Lei 9.784/99 arts. 53 a 55", "LINDB arts. 20 a 30"], "n": 4, "ex": [42, 44, 45, 47], "qs": ["42º Q31", "44º Q33", "45º Q30", "47º Q30"]}, {"t": "Agentes públicos", "a": ["CF arts. 37 a 41", "Lei 8.112/90"], "n": 3, "ex": [42, 43, 45], "qs": ["42º Q32", "43º Q30", "45º Q33"]}, {"t": "Serviços públicos, concessões e PPP", "a": ["Lei 8.987/95", "Lei 11.079/04"], "n": 3, "ex": [42, 43, 47], "qs": ["42º Q33", "43º Q31", "47º Q34"]}, {"t": "Processo administrativo federal", "a": ["Lei 9.784/99"], "n": 2, "ex": [46, 47], "qs": ["46º Q34", "47º Q31"]}, {"t": "Organização administrativa e agências", "a": ["DL 200/67", "Lei 13.848/19"], "n": 2, "ex": [44, 46], "qs": ["44º Q30", "46º Q32"]}, {"t": "Responsabilidade civil do Estado", "a": ["CF art. 37, § 6º"], "n": 1, "ex": [43], "qs": ["43º Q34"]}]}, {"id": "amb", "nome": "Direito Ambiental", "dica": null, "q": 2, "temas": [{"t": "Licenciamento e instrumentos ambientais", "a": ["CF art. 225, § 1º, IV", "LC 140/11", "Resolução CONAMA 237/97"], "n": 5, "ex": [43, 44, 45, 46, 47], "qs": ["43º Q36", "44º Q35", "45º Q36", "46º Q35", "47º Q35"]}, {"t": "Responsabilidade ambiental (civil, administrativa e penal)", "a": ["CF art. 225, § 3º", "Lei 6.938/81 art. 14, § 1º", "Lei 9.605/98"], "n": 5, "ex": [42, 43, 44, 45, 47], "qs": ["42º Q36", "43º Q35", "44º Q36", "45º Q35", "47º Q36"]}, {"t": "Unidades de conservação e Código Florestal", "a": ["Lei 9.985/00", "Lei 12.651/12"], "n": 2, "ex": [42, 46], "qs": ["42º Q35", "46º Q36"]}]}, {"id": "civil", "nome": "Direito Civil", "dica": null, "q": 6, "temas": [{"t": "Posse, propriedade e direitos reais", "a": ["CC arts. 1.196 a 1.510-E", "CC arts. 1.238 a 1.244 (usucapião)"], "n": 5, "ex": [42, 43, 44, 45, 47], "qs": ["42º Q42", "43º Q42", "44º Q42", "45º Q42", "47º Q39"]}, {"t": "Sucessões", "a": ["CC arts. 1.784 a 2.027"], "n": 5, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q41", "43º Q40", "44º Q40", "45º Q40", "46º Q39"]}, {"t": "Família, filiação, alimentos e tutela", "a": ["CC arts. 1.511 a 1.783"], "n": 6, "ex": [42, 44, 46, 47], "qs": ["42º Q39", "44º Q37", "44º Q41", "46º Q38", "47º Q37", "47º Q42"]}, {"t": "Parte geral e negócio jurídico", "a": ["CC arts. 1º a 21", "CC arts. 104 a 184"], "n": 5, "ex": [44, 45, 46, 47], "qs": ["44º Q39", "45º Q37", "46º Q37", "46º Q40", "47º Q41"]}, {"t": "Proteção de dados (LGPD)", "a": ["Lei 13.709/18"], "n": 4, "ex": [43, 44, 45, 47], "qs": ["43º Q39", "44º Q38", "45º Q41", "47º Q40"]}, {"t": "Responsabilidade civil", "a": ["CC arts. 186 e 187", "CC arts. 927 a 954"], "n": 4, "ex": [43, 45, 47], "qs": ["43º Q37", "43º Q41", "45º Q39", "47º Q38"]}, {"t": "Obrigações", "a": ["CC arts. 233 a 420"], "n": 3, "ex": [42, 43, 45], "qs": ["42º Q40", "43º Q38", "45º Q38"]}, {"t": "Contratos", "a": ["CC arts. 421 a 853", "Lei 8.245/91 (locação)"], "n": 4, "ex": [42, 46], "qs": ["42º Q37", "42º Q38", "46º Q41", "46º Q42"]}]}, {"id": "eca", "nome": "ECA", "dica": null, "q": 2, "temas": [{"t": "Ato infracional e medidas socioeducativas", "a": ["ECA arts. 103 a 128"], "n": 4, "ex": [44, 45, 46, 47], "qs": ["44º Q43", "45º Q44", "46º Q43", "47º Q44"]}, {"t": "Convivência familiar, adoção e medidas de proteção", "a": ["ECA arts. 19 a 52", "ECA art. 101"], "n": 3, "ex": [43, 44, 47], "qs": ["43º Q44", "44º Q44", "47º Q43"]}, {"t": "Direitos fundamentais", "a": ["ECA arts. 7º a 69"], "n": 3, "ex": [42, 43, 46], "qs": ["42º Q44", "43º Q43", "46º Q44"]}, {"t": "Prevenção e autorização de viagem", "a": ["ECA arts. 70 a 85"], "n": 2, "ex": [42, 45], "qs": ["42º Q43", "45º Q43"]}]}, {"id": "cdc", "nome": "Direito do Consumidor", "dica": null, "q": 2, "temas": [{"t": "Práticas comerciais, oferta e publicidade", "a": ["CDC arts. 30 a 45"], "n": 4, "ex": [43, 44, 45, 46], "qs": ["43º Q45", "44º Q46", "45º Q45", "46º Q46"]}, {"t": "Responsabilidade por fato e por vício", "a": ["CDC arts. 12 a 27"], "n": 3, "ex": [42, 45, 47], "qs": ["42º Q45", "45º Q46", "47º Q46"]}, {"t": "Proteção contratual e arrependimento", "a": ["CDC arts. 46 a 54"], "n": 3, "ex": [42, 43, 47], "qs": ["42º Q46", "43º Q46", "47º Q45"]}, {"t": "Superendividamento", "a": ["CDC arts. 54-A a 54-G", "CDC arts. 104-A a 104-C"], "n": 2, "ex": [44, 46], "qs": ["44º Q45", "46º Q45"]}]}, {"id": "emp", "nome": "Direito Empresarial", "dica": null, "q": 4, "temas": [{"t": "Direito societário", "a": ["CC arts. 981 a 1.141", "Lei 6.404/76"], "n": 7, "ex": [42, 43, 44, 45, 47], "qs": ["42º Q48", "43º Q48", "43º Q49", "44º Q47", "45º Q48", "47º Q48", "47º Q49"]}, {"t": "Falência e recuperação judicial", "a": ["Lei 11.101/05 (com a Lei 14.112/20)"], "n": 5, "ex": [42, 44, 45, 46, 47], "qs": ["42º Q50", "44º Q48", "45º Q47", "46º Q48", "47º Q50"]}, {"t": "Empresário, registro e nome empresarial", "a": ["CC arts. 966 a 980", "CC arts. 1.150 a 1.168", "LC 123/06"], "n": 5, "ex": [42, 43, 44, 46], "qs": ["42º Q47", "43º Q47", "44º Q49", "44º Q50", "46º Q50"]}, {"t": "Contratos empresariais", "a": ["DL 911/69 (alienação fiduciária)", "Lei 8.245/91 arts. 51 a 57 (renovatória)"], "n": 3, "ex": [43, 45], "qs": ["43º Q50", "45º Q49", "45º Q50"]}, {"t": "Títulos de crédito", "a": ["CC arts. 887 a 926", "Decreto 57.663/66 (LUG)", "Lei 5.474/68 (duplicata)"], "n": 2, "ex": [46, 47], "qs": ["46º Q47", "47º Q47"]}, {"t": "Propriedade industrial", "a": ["Lei 9.279/96 (marcas)"], "n": 2, "ex": [42, 46], "qs": ["42º Q49", "46º Q49"]}]}, {"id": "cpc", "nome": "Processo Civil", "dica": null, "q": 6, "temas": [{"t": "Execução e cumprimento de sentença", "a": ["CPC arts. 509 a 538", "CPC arts. 771 a 925"], "n": 10, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q55", "43º Q55", "44º Q53", "44º Q55", "45º Q53", "45º Q55", "46º Q51", "46º Q52", "47º Q52", "47º Q56"]}, {"t": "Procedimentos especiais e Juizados", "a": ["CPC arts. 539 a 770", "Lei 9.099/95"], "n": 6, "ex": [43, 44, 45, 46, 47], "qs": ["43º Q52", "44º Q56", "45º Q54", "46º Q55", "47º Q51", "47º Q53"]}, {"t": "Procedimento comum, defesa, provas e sentença", "a": ["CPC arts. 319 a 512"], "n": 8, "ex": [42, 43, 45, 47], "qs": ["42º Q51", "42º Q52", "42º Q56", "43º Q51", "43º Q56", "45º Q52", "45º Q56", "47º Q55"]}, {"t": "Recursos", "a": ["CPC arts. 994 a 1.044", "CPC art. 496 (remessa necessária)"], "n": 6, "ex": [42, 43, 44, 46], "qs": ["42º Q53", "43º Q53", "43º Q54", "44º Q51", "46º Q53", "46º Q54"]}, {"t": "Tutelas provisórias", "a": ["CPC arts. 294 a 311"], "n": 2, "ex": [44, 45], "qs": ["44º Q52", "45º Q51"]}, {"t": "Custas, gratuidade e honorários", "a": ["CPC arts. 82 a 102"], "n": 2, "ex": [42, 47], "qs": ["42º Q54", "47º Q54"]}, {"t": "Competência", "a": ["CPC arts. 42 a 66"], "n": 1, "ex": [44], "qs": ["44º Q54"]}, {"t": "Tutela coletiva", "a": ["Lei 7.347/85"], "n": 1, "ex": [46], "qs": ["46º Q56"]}]}, {"id": "penal", "nome": "Direito Penal", "dica": null, "q": 6, "temas": [{"t": "Teoria do crime e concurso de pessoas", "a": ["CP arts. 13 a 31"], "n": 12, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q60", "42º Q61", "43º Q60", "43º Q61", "43º Q62", "44º Q62", "45º Q59", "45º Q61", "45º Q62", "46º Q58", "46º Q59", "46º Q60"]}, {"t": "Aplicação da lei penal no tempo e no espaço", "a": ["CP arts. 1º a 12"], "n": 6, "ex": [42, 43, 44, 45], "qs": ["42º Q57", "42º Q62", "43º Q59", "44º Q61", "45º Q57", "45º Q60"]}, {"t": "Crimes contra o patrimônio", "a": ["CP arts. 155 a 183"], "n": 4, "ex": [43, 44, 47], "qs": ["43º Q57", "44º Q60", "47º Q57", "47º Q59"]}, {"t": "Crimes contra a dignidade sexual", "a": ["CP arts. 213 a 218-C"], "n": 4, "ex": [42, 44, 46], "qs": ["42º Q58", "42º Q59", "44º Q57", "46º Q57"]}, {"t": "Teoria da pena e medida de segurança", "a": ["CP arts. 32 a 99"], "n": 4, "ex": [43, 46, 47], "qs": ["43º Q58", "46º Q61", "47º Q60", "47º Q61"]}, {"t": "Legislação penal especial", "a": ["Lei 11.343/06 (drogas)", "CTB", "ECA art. 244-B"], "n": 3, "ex": [44, 45, 46], "qs": ["44º Q59", "45º Q58", "46º Q62"]}, {"t": "Extinção da punibilidade", "a": ["CP arts. 107 a 120"], "n": 1, "ex": [44], "qs": ["44º Q58"]}, {"t": "Crimes contra a pessoa", "a": ["CP arts. 121 a 154"], "n": 1, "ex": [47], "qs": ["47º Q62"]}, {"t": "Crimes contra a administração pública", "a": ["CP arts. 312 a 359"], "n": 1, "ex": [47], "qs": ["47º Q58"]}]}, {"id": "cpp", "nome": "Processo Penal", "dica": null, "q": 6, "temas": [{"t": "Inquérito e ação penal", "a": ["CPP arts. 4º a 62", "CPP art. 28-A (ANPP)"], "n": 9, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q68", "43º Q66", "43º Q67", "44º Q64", "45º Q65", "45º Q66", "46º Q65", "47º Q65", "47º Q67"]}, {"t": "Recursos e habeas corpus", "a": ["CPP arts. 574 a 667"], "n": 7, "ex": [42, 43, 44, 46, 47], "qs": ["42º Q63", "42º Q65", "43º Q65", "44º Q63", "46º Q66", "46º Q67", "47º Q66"]}, {"t": "Procedimentos, júri e sentença", "a": ["CPP arts. 383 e 384", "CPP arts. 394 a 497"], "n": 7, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q66", "43º Q64", "44º Q67", "44º Q68", "45º Q68", "46º Q63", "46º Q64"]}, {"t": "Provas", "a": ["CPP arts. 155 a 250", "CPP arts. 158-A a 158-F (cadeia de custódia)"], "n": 6, "ex": [42, 43, 44, 45, 47], "qs": ["42º Q67", "43º Q68", "44º Q66", "45º Q63", "45º Q67", "47º Q68"]}, {"t": "Prisões e medidas cautelares", "a": ["CPP arts. 282 a 350"], "n": 3, "ex": [42, 44, 47], "qs": ["42º Q64", "44º Q65", "47º Q63"]}, {"t": "Competência", "a": ["CPP arts. 69 a 91", "CF art. 109"], "n": 3, "ex": [43, 46, 47], "qs": ["43º Q63", "46º Q68", "47º Q64"]}, {"t": "Execução penal e indulto", "a": ["Lei 7.210/84 (LEP)", "CF art. 84, XII"], "n": 1, "ex": [45], "qs": ["45º Q64"]}]}, {"id": "prev", "nome": "Direito Previdenciário", "dica": null, "q": 2, "temas": [{"t": "Benefícios em espécie", "a": ["Lei 8.213/91 arts. 42 a 87", "CF art. 201"], "n": 8, "ex": [42, 43, 44, 45, 46, 47], "qs": ["42º Q70", "43º Q69", "43º Q70", "44º Q69", "45º Q70", "46º Q69", "46º Q70", "47º Q69"]}, {"t": "Segurados, dependentes e qualidade de segurado", "a": ["Lei 8.213/91 arts. 11 a 17", "Lei 8.213/91 art. 15 (período de graça)"], "n": 4, "ex": [42, 44, 45, 47], "qs": ["42º Q69", "44º Q70", "45º Q69", "47º Q70"]}]}, {"id": "trab", "nome": "Direito do Trabalho", "dica": null, "q": 5, "temas": [{"t": "Contrato, sujeitos e poder diretivo", "a": ["CLT arts. 2º e 3º", "CLT arts. 442 a 476"], "n": 6, "ex": [42, 43, 44, 45, 47], "qs": ["42º Q72", "43º Q71", "43º Q72", "44º Q74", "45º Q71", "47º Q75"]}, {"t": "Jornada, intervalos e férias", "a": ["CLT arts. 58 a 75", "CLT arts. 129 a 153"], "n": 5, "ex": [42, 44, 45, 47], "qs": ["42º Q74", "44º Q71", "44º Q72", "45º Q74", "47º Q71"]}, {"t": "Extinção do contrato", "a": ["CLT arts. 477 a 486"], "n": 5, "ex": [43, 45, 46], "qs": ["43º Q73", "43º Q74", "45º Q72", "45º Q75", "46º Q75"]}, {"t": "Remuneração, salário e equiparação", "a": ["CLT arts. 457 a 467", "CLT art. 461"], "n": 5, "ex": [42, 46, 47], "qs": ["42º Q71", "46º Q71", "46º Q74", "47º Q72", "47º Q74"]}, {"t": "Proteção ao trabalho da mulher e do menor", "a": ["CLT arts. 372 a 441"], "n": 4, "ex": [44, 45, 46], "qs": ["44º Q73", "44º Q75", "45º Q73", "46º Q72"]}, {"t": "Direito coletivo e normas coletivas", "a": ["CLT arts. 611-A e 611-B"], "n": 3, "ex": [42, 43, 46], "qs": ["42º Q75", "43º Q75", "46º Q73"]}, {"t": "Estabilidades", "a": ["ADCT art. 10, II", "CLT art. 391-A"], "n": 1, "ex": [47], "qs": ["47º Q73"]}, {"t": "Prescrição trabalhista", "a": ["CF art. 7º, XXIX", "CLT art. 11"], "n": 1, "ex": [42], "qs": ["42º Q73"]}]}, {"id": "cpt", "nome": "Processo do Trabalho", "dica": null, "q": 5, "temas": [{"t": "Petição inicial, audiência e provas", "a": ["CLT arts. 840 a 852", "CLT art. 818"], "n": 9, "ex": [42, 43, 44, 45, 46], "qs": ["42º Q80", "43º Q76", "43º Q78", "43º Q79", "44º Q76", "45º Q76", "45º Q78", "46º Q76", "46º Q77"]}, {"t": "Execução trabalhista", "a": ["CLT arts. 876 a 892"], "n": 5, "ex": [42, 43, 44, 46], "qs": ["42º Q79", "43º Q80", "44º Q78", "44º Q80", "46º Q80"]}, {"t": "Recursos trabalhistas", "a": ["CLT arts. 893 a 902"], "n": 5, "ex": [42, 45, 46, 47], "qs": ["42º Q76", "45º Q79", "46º Q78", "47º Q78", "47º Q79"]}, {"t": "Custas, gratuidade e honorários", "a": ["CLT arts. 789 a 791-A"], "n": 4, "ex": [42, 43, 45, 46], "qs": ["42º Q77", "43º Q77", "45º Q77", "46º Q79"]}, {"t": "Acordo extrajudicial e procedimentos especiais", "a": ["CLT arts. 855-B a 855-E", "CLT arts. 856 a 875 (dissídio coletivo)"], "n": 4, "ex": [42, 44, 47], "qs": ["42º Q78", "44º Q79", "47º Q76", "47º Q80"]}, {"t": "Competência da Justiça do Trabalho", "a": ["CF art. 114", "CLT art. 651"], "n": 3, "ex": [44, 45, 47], "qs": ["44º Q77", "45º Q80", "47º Q77"]}]}];
+
+/* "Não vá sem": caiu em 5+ das 6 provas; nas disciplinas de 2 questões, o tema que mais apareceu (3+ provas) */
+DATA.forEach(d=>{
+  const top=Math.max(...d.temas.map(t=>t.ex.length));
+  d.temas.forEach((t,i)=>{ t.id=d.id+"-"+t.t.normalize("NFD").replace(/[^a-zA-Z]/g,"").slice(0,24).toLowerCase(); t.must = d.q>=4 ? t.ex.length>=5 : (t.ex.length===top && top>=3); });
+});
+
+const KEY="caixapreta-oab-v1";
+let state={};
+try{ state=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ state={}; }
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let filtro="todas";
+
+const chips=document.getElementById("chips");
+[{id:"todas",nome:"Todas"}].concat(DATA).forEach(d=>{
+  const b=document.createElement("button");
+  b.className="chip"; b.type="button"; b.textContent=d.nome; b.dataset.id=d.id;
+  b.setAttribute("aria-pressed",d.id==="todas");
+  b.onclick=()=>{ filtro=d.id; chips.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.id===filtro)); render(); };
+  chips.appendChild(b);
+});
+
+function render(){
+  const q=norm(document.getElementById("q").value.trim());
+  const onlyMust=document.getElementById("onlyMust").checked;
+  const hideDone=document.getElementById("hideDone").checked;
+  const list=document.getElementById("list");
+  let html="", shown=0;
+  DATA.forEach(d=>{
+    if(filtro!=="todas"&&filtro!==d.id) return;
+    const temas=d.temas.filter(t=>{
+      const s=state[t.id]||{};
+      if(onlyMust&&!t.must) return false;
+      if(hideDone&&s.r) return false;
+      if(q && !norm(d.nome+" "+t.t+" "+t.a.join(" ")+" "+t.qs.join(" ")).includes(q)) return false;
+      return true;
+    });
+    if(!temas.length) return;
+    shown+=temas.length;
+    const rev=d.temas.filter(t=>(state[t.id]||{}).r).length;
+    html+=`<section class="disc" id="${d.id}">
+      <div class="disc-h"><div><h2>${esc(d.nome)}</h2><div class="meta">${rev} de ${d.temas.length} temas revisados</div></div>
+      <div class="qbox"><b>${d.q}</b><span>questões por prova</span></div></div>
+      ${d.dica?`<p class="dica">${esc(d.dica)}</p>`:""}
+      <div class="dprog"><div style="width:${Math.round(rev/d.temas.length*100)}%"></div></div>`;
+    temas.forEach(t=>{
+      const s=state[t.id]||{};
+      const freq = `<div class="freq"><div class="exs" aria-hidden="true">${EXAMES.map(e=>`<span class="${t.ex.includes(e)?"on":""}">${e}º</span>`).join("")}</div>
+        <span>Caiu em <b>${t.ex.length} de 6</b> provas · ${t.n} ${t.n===1?"questão":"questões"}</span></div>
+        <p class="qs">${t.qs.join(" · ")}</p>`;
+      html+=`<div class="topic${s.r?" done":""}">
+        <div><div class="t-title"><h3>${esc(t.t)}</h3>${t.must?'<span class="must">Não vá sem</span>':""}</div>
+        ${freq}<div class="arts">${t.a.map(x=>`<span class="art">${esc(x)}</span>`).join("")}</div></div>
+        <div class="checks">
+          <label class="ck"><input type="checkbox" data-t="${t.id}" data-k="e"${s.e?" checked":""}> Estudei</label>
+          <label class="ck"><input type="checkbox" data-t="${t.id}" data-k="r"${s.r?" checked":""}> Revisei</label>
+        </div></div>`;
+    });
+    html+=`</section>`;
+  });
+  list.innerHTML=html;
+  document.getElementById("empty").style.display=shown?"none":"block";
+  totals();
+}
+
+function totals(){
+  let total=0,r=0,s=0;
+  DATA.forEach(d=>d.temas.forEach(t=>{ total++; const x=state[t.id]||{}; if(x.r) r++; else if(x.e) s++; }));
+  document.getElementById("pct").innerHTML=Math.round(r/total*100)+"%<small> revisado</small>";
+  document.getElementById("barR").style.width=(r/total*100)+"%";
+  document.getElementById("barS").style.width=(s/total*100)+"%";
+  document.getElementById("lgR").textContent=r+(r===1?" revisado":" revisados");
+  document.getElementById("lgS").textContent=s+(s===1?" só estudado":" só estudados");
+  document.getElementById("lgT").textContent=total+" temas no total";
+}
+
+document.getElementById("list").addEventListener("change",e=>{
+  const el=e.target; if(!el.dataset.t) return;
+  const s=state[el.dataset.t]||(state[el.dataset.t]={});
+  s[el.dataset.k]=el.checked;
+  if(el.dataset.k==="r"&&el.checked) s.e=true;
+  save(); render();
+});
+["q","onlyMust","hideDone"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+document.getElementById("reset").onclick=()=>{ if(confirm("Zerar todo o seu progresso? Essa ação não pode ser desfeita.")){ state={}; save(); render(); } };
+render();
+</script>
+</body>
+</html>
